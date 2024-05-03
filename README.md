@@ -1,1 +1,1 @@
-# Repo for i3-config files
+# Repo for Dot / Config Files
