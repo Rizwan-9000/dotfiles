@@ -32,3 +32,12 @@ https://github.com/vivien/i3blocks-contrib
 custom neofetch -> acenoster one with little tweaks
 jp2a -> for converting images to ascii
 
+# installing oh-my-posh prompt
+
+install the prompt on ~/bin ( usr/local/bin is the default path but no permission to write on it )
+then add this into .bashrc file: 
+export TERM=xterm-256color
+export PATH=~/bin:PATH
+eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/aliens.omp.json)"
+
+replace the aliens.omp.json file content with poshtheme one
