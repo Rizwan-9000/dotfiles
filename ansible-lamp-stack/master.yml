@@ -1,0 +1,14 @@
+- name: Deploying LAMP Stack
+  hosts: [test_servers]
+  become: yes
+  vars_files:
+    creds.txt
+  vars:
+    ansible_become_password: "{{ ssh_password }}"
+
+  roles:
+    - install-apache
+    - install-mysql
+    - configure-mysql  
+    - install-php
+    - configure-php

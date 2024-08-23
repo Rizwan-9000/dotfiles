@@ -1,0 +1,7 @@
+- name: intalling php
+  apt:
+    name: 
+      - php
+      - php-mysql
+      - libapache2-mod-php8.0
+    state: present

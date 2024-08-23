@@ -1,0 +1,5 @@
+- name: configuring php
+  template:
+    src: ./index.php
+    dest: /var/www/html/
+  notify: restart apache   
