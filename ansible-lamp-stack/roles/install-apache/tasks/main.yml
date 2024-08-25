@@ -1,6 +1,0 @@
-- name: installing apache2
-  apt: name=apache2 state=present
-  notify: starting apache2
-
-- name: removing default index.html file
-  command: rm /var/www/html/index.html

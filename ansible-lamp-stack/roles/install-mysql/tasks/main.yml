@@ -1,6 +1,0 @@
-- name: installing dependencies
-  apt: name=python3-pymysql state=present
-
-- name: installing mysql-server
-  apt: name=mysql-server state=present
-  notify: starting mysql-server
