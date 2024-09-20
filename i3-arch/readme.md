@@ -41,3 +41,5 @@ export PATH=~/bin:PATH
 eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/aliens.omp.json)"
 
 replace the aliens.omp.json file content with poshtheme one
+
+for ranger, rc.conf enable the image preview option and uncomment the ueberzug method - install ueberzug, ueberzugpp also works
