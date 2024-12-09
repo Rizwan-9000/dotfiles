@@ -1,0 +1,11 @@
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[window title]
+command=xdotool getactivewindow getwindowname
+interval=1
+#color=#A6D1FA
+min_width=1800
+align=center
+
