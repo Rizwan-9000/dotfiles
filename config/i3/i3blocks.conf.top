@@ -3,7 +3,8 @@ separator_block_width=15
 markup=none
 
 [window title]
-command=xdotool getactivewindow getwindowname
+#command=xdotool getactivewindow getwindowname
+command=sh -c "xdotool getactivewindow getwindowname 2>/dev/null || echo ''"
 interval=1
 #color=#A6D1FA
 min_width=1800

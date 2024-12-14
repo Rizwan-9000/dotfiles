@@ -41,7 +41,7 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
@@ -191,7 +191,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# for scratchpad 
+# dropdown window / scratchpad
 
 exec --no-startup-id kitty --name=dropdown
 for_window [instance="dropdown"] floating enable;
@@ -199,6 +199,7 @@ for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchp
 for_window [instance="dropdown"] resize set 900 600
 
 bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
+
 
 
 ## for gaps between windows use this, 1 is for indicator to show, set it up to 0 to disable it
@@ -265,14 +266,14 @@ bar{
 bindsym $mod+Shift+x exec ~/.lock.sh
 
 # for wallpaper
-exec_always feh --bg-scale ~/wallpapers/4.png
+exec_always feh --bg-scale ~/wallpapers/12.jpg
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-# install the playerctl from github
+# install the playerctl from github or through apt - I use apt in this instance
 
 # https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759 ( for audio controls and such )
 
@@ -281,4 +282,7 @@ exec_always --no-startup-id compton -f
 
 # this is for autotiling - install using this cargo install --git https://github.com/pando85/i3-auto-layout
 exec_always --no-startup-id ~/.cargo/bin/i3-auto-layout
+
+# execute the mpd at the startup - you can install it through apt
+exec mpd
 
