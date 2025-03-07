@@ -1,0 +1,93 @@
+# i3-config-wizard ( will pop up the wizard and generate the configuration file )
+
+{ in the config file }
+* exec ( will execute things once afer logging in )
+exec_always ( will execute always everytime i3 reloads )
+exec firefox ( will execute and start firefox at the start )
+
+* for resolution install arandr
+after changing do this:
+press the save as and save the file
+cat the file and paste the contents on the i3 config file with exec_always
+* file will be save on .screenlayout
+
+* for icons to work you need specific font installed first - font awesome
+* we need .ttf fonts - copy them on .fonts directory on the home folder
+
+* to change the system font just simply download the font you want and change it in the i3 config file
+* like this -> font pango:your-font-name 18
+* this wont affect the gtk fonts ( application fonts ) for this install lxappearance
+* however sometimes font won't be shown in lxappearance for that just made any simple change in fonts and then it will create the file .gtkrc-2.0 on the home folder
+* there is also another config file in .config/gtk-3.0 named as settings.ini
+* you can manually change the font from the gtk files ( change on both )
+
+* you can change the theme by lxappearance too just add the themes folder ( arc red ) in .themes on the home folder and lxappearance will get that
+
+* for fading effect use compton ( install it ) and run that through i3 config file
+
+* i3status config file is in /etc/i3status.conf, you can make it transparent by this adding this on the bar {i3bar_command i3bar --transparency}
+* you can do the same with i3blocks - just install it and move it from /etc/i3blocks.conf to ~/.config/i3/i3blocks.conf and add the path in i3 config file like status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+* for i3-gaps on ubuntu -> https://i3wm.org/docs/repositories.html
+* need to install a apt repo, they merged i3-wm and i3-gaps in one single i3
+
+* for ranger install it using apt and then create the rc.conf file in ~/.config/ranger/ with following properties: 
+$ set preview_images true
+$ set preview_images_method kitty
+* method depends upon your terminal ( i was using kitty hence kitty method, you can use iterm2 or w3m etc )
+
+* for autotiling install from this guy https://github.com/pando85/i3-auto-layout
+* you'll need cargo to install
+* cargo install --git https://github.com/chmln/i3-auto-layout -> change into this cargo install --git https://github.com/pando85/i3-auto-layout
+* you will need to add this into path: export PATH=$PATH:/home/tangerine/.cargo/bin
+* and on i3 config file add this exec_always --no-startup-id ~/.cargo/bin/i3-auto-layout
+
+* #sudo apt install cava ncmpcpp mpd mpc ( for music and cava for visualizing )
+* disable running mpd as a service #sudo systemctl stop mpd
+* install this #sudo apt-get install timidity
+* make the mpd.db directory as .config/mpd/mpd.db and write that too in mpd.conf
+* run mpd by simply typing it and then ncmpcpp 
+
+* for color highlighting in vim download the plugins
+* add the plugins in ~/.vimrc file
+* before that download the plugin manager https://github.com/junegunn/vim-plug
+* then this plugin https://github.com/chrisbra/Colorizer?tab=readme-ov-file
+* :source ~/.vimrc 
+
+* polybar
+* 
+
+* i3lock script - magick changed into convert
+
+* to hide the indicator on i3wm just set them same color as every border respectively
+
+* for scratchpad watch this https://youtu.be/Ja-DgvGPDu8
+
+* use lightdm and lightdm-gtk-greeter for customization
+* for backgrounds and user icon put it in /usr/share/backgrounds/ so greeter can read that
+* for user profile pic just crop what you want and use that
+
+* responsive i3blocks, making the i3blocks clickable
+* you need to add things in the script itself
+* manage to run pavucontrol on clicking the volume block
+
+* also manage to show window names only when there is some window otherwise no
+* logout and login takes a lot of time and cpu is 100% now
+
+* for notification sound add this in the dunstrc file https://github.com/dunst-project/dunst/issues/257
+* you can install sox and libsox-fmt-mp3 ( for mp3 support ) for playing sound files in the terminal without opening the new tab or program
+* write a script to play that sound and give it to dunstrc file
+
+* for downloading youtube videos or other videos in general install yt-dlp ( add the ppa from github:https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation ) and do install ffmpeg also ( if not present before )
+
+* for blurring use picom, got it from here https://github.com/yshui/picom
+* remove and purge the compton and do the same with the existing verison of picom ( if present )
+* reboot for clean start
+* clone it build and install it
+* install cmake if it gave error of cmake not found
+* after installing it should make the directory on the home folder - copy the picom.sample.conf from here and put it in the folder .config/picom/ with name picom.conf
+* in the conf file look for blur section and add blur-method = "dual_kawase" and change the blur-strength to your need
+* also change the backend to glx, by default it is xrender -? backend = "glx"
+* leave the rest as it is and start the picom from i3 config file just like compton and blur should work now
+
+
